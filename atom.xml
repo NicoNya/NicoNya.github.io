@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">七夜LaNotte</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-04-22T19:54:28+08:00</updated>
+    <updated>2020-04-22T19:56:43+08:00</updated>
     <id>https://niconya.github.io/</id>
     <link rel="alternate" type="text/html" href="https://niconya.github.io/" />
     <link rel="self" type="application/atom+xml" href="https://niconya.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">使用mklink让OneDrive自动同步本地任意文件夹</title>
             <link rel="alternate" type="text/html" href="https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mklink%E8%AE%A9onedrive%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%A4%B9/" />
             <id>https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mklink%E8%AE%A9onedrive%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%A4%B9/</id>
-            <updated>2020-04-22T19:53:42+08:00</updated>
+            <updated>2020-04-22T19:56:31+08:00</updated>
             <published>2020-04-22T19:52:18+08:00</published>
             <author>
                     <name>NicoNya</name>
@@ -29,7 +29,7 @@
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     
-    <summary type="html"><![CDATA[使用Onedrive自动同步电脑上的文件，只有放在Onedrive对应目录下才能自动……]]></summary>
+    <summary type="html"><![CDATA[<p><strong>使用Onedrive自动同步电脑上的文件，只有放在Onedrive对应目录下才能自动同步，而文件都放在这一路径下，势必会导致文件夹占用过大空间，并且OneDrive的备份功能只能备份桌面、文档和图片文件夹，此时可以使用mklink创建软链接映射来同步其他文件夹的文件。</strong></p>……]]></summary>
             
                 <content type="html"><![CDATA[<p><strong>使用Onedrive自动同步电脑上的文件，只有放在Onedrive对应目录下才能自动同步，而文件都放在这一路径下，势必会导致文件夹占用过大空间，并且OneDrive的备份功能只能备份桌面、文档和图片文件夹，此时可以使用mklink创建软链接映射来同步其他文件夹的文件。</strong></p>
 <h2 id="使用方法">使用方法</h2>
@@ -73,8 +73,7 @@
 <li>
 <p>OneDrive网盘内链接的文件夹一直都是同步被挂起状态，暂不知道怎么解决</p>
 </li>
-</ul>
-]]></content>
+</ul>]]></content>
             
             
             
