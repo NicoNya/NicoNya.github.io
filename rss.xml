@@ -23,10 +23,85 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Wed, 22 Apr 2020 19:44:01 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 22 Apr 2020 19:54:29 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://niconya.github.io/rss.xml" />
         
+        
+            <item>
+                <title>使用mklink让OneDrive自动同步本地任意文件夹</title>
+                <link>https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mklink%E8%AE%A9onedrive%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+                <guid isPermaLink="true">https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mklink%E8%AE%A9onedrive%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E6%9C%AC%E5%9C%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+                <pubDate>Wed, 22 Apr 2020 19:52:18 +0800</pubDate>
+                
+                    <author>djvineh8@gmail.com (NicoNya)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<p><strong>使用Onedrive自动同步电脑上的文件，只有放在Onedrive对应目录下才能自动同步，而文件都放在这一路径下，势必会导致文件夹占用过大空间，并且OneDrive的备份功能只能备份桌面、文档和图片文件夹，此时可以使用mklink创建软链接映射来同步其他文件夹的文件。</strong></p>
+<h2 id="使用方法">使用方法</h2>
+<h3 id="命令格式">命令格式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mklink /j juctionpath target
+<span class="c1">#target即是你要同步的不在Onedrive路径下的文件夹，而juctionpath为在Onedrive路径下“将要”新建的文件夹（juction）名字</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用场景">使用场景</h3>
+<p>例如要把我D盘下的<code>D:\Test1</code>文件夹同步到OneDrive目录中的<code>E:\OneDrive\Test2</code>文件夹</p>
+<p>以管理员模式打开命令提示符，在打开的窗口中输入命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">mklink</span><span class="p">/</span><span class="n">d</span> <span class="n">E:</span><span class="p">\</span><span class="n">OneDrive</span><span class="p">\</span><span class="n">Test2</span> <span class="n">D:</span><span class="p">\</span><span class="n">Test1</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>执行本操作时请确保OneDrive目录下没有名为你要创建的目录，否则将会报错</strong></p>
+<p><strong>均使用绝对路径，如果路径中有空格，请在路径前后加上英文状态下的引号(&quot;)</strong></p>
+</blockquote>
+<p>回车键执行后，命令提示符返回<code>为…创建的符号链接 </code>字样的文字，即说明建立连接成功</p>
+<p>会在<code>E:\OneDrive</code>路径下生成指向<code>D:\Test1</code>的文件夹<code>Test2</code>，可以实现对<code>D:\Test1</code>文件夹的自动同步</p>
+<h2 id="使用时发现的问题">使用时发现的问题</h2>
+<ul>
+<li>
+<p>使用时候发现在被同步的文件夹内如果只是修改了某个文件的名字而不对文件内容进行修改或者是新创建了文件，OneDrive内链接到的文件虽然也会更改文件名或者新建了文件，但是远程网盘上的文件名字不会被更改，文件也不会被创建，系统托盘内OneDrive的图标上也没有更新的动作产生。</p>
+<p><strong>解决办法：</strong></p>
+<p>如果进行了重命名文件的操作，需要记住再打开一下文件，进行任意操作并保存，OneDrive就会开始自动进行文件的更新操作</p>
+<p>如果还不可以，就在OneDrive网盘内对应文件处右键点击查看历史版本记录，也会触发OneDrive的更新操作</p>
+<p>或者最简便的方法就是重启一下OneDrive客户端，如果不急着在多端使用文件的话，电脑重启时候也会触发到更新操作</p>
+</li>
+<li>
+<p>OneDrive网盘内链接的文件夹一直都是同步被挂起状态，暂不知道怎么解决</p>
+</li>
+</ul>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://niconya.github.io/tags/onedrive/">OneDrive</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>《玩转Vim 从放弃到爱不释手》学习笔记</title>
