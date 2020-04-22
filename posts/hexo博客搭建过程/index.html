@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="NicoNya"/>
+
+  
+  <meta name="description" content="环境准备 1.Git下载安装 2.Node.JS下载安装 安装完成后，要确认是否已经安装成功，在cmd中使用下列命令来验证，有返回的信息就表示安装成功了
+ git &amp;ndash;version
+node -v
+npm -v
+"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://niconya.github.io/posts/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
+
+  
+
+  <title>Hexo博客搭建过程 &middot; 七夜LaNotte</title>
+
+  <link rel="shortcut icon" href="https://niconya.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://niconya.github.io/">
+          <span>七夜LaNotte</span>
+          <img src="https://niconya.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">七夜LaNotte</p>
+      <div class="my_socials">
+        
+        
+        <a href="%20" title="facebook" target="_blank"><i class="remixicon-facebook-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="instagram" target="_blank"><i class="remixicon-instagram-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="twitter" target="_blank"><i class="remixicon-twitter-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="weibo" target="_blank"><i class="remixicon-weibo-fill"></i></a>
+        
+        
+        <a href="https://niconya.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/'>Hexo博客搭建过程</a></h2>
+          <span class="date">2019.09.09</span>
+        </div>
+        <div class="post_content markdown"><h2 id="环境准备">环境准备</h2>
+<h3 id="1githttpsgit-scmcom下载安装">1.<a href="https://git-scm.com">Git</a>下载安装</h3>
+<h3 id="2nodejshttpsnodejsorgzh-cn下载安装">2.<a href="https://nodejs.org/zh-cn">Node.JS</a>下载安装</h3>
+<p>安装完成后，要确认是否已经安装成功，在cmd中使用下列命令来验证，有返回的信息就表示安装成功了</p>
+<blockquote>
+<p>git &ndash;version</p>
+<p>node -v</p>
+<p>npm -v</p>
+</blockquote>
+<h2 id="安装hexohttpshexoiozh-cnindexhtml">安装<a href="https://hexo.io/zh-cn/index.html">Hexo</a></h2>
+<blockquote>
+<p>在git bash中输入 npm install -g hexo-cli</p>
+</blockquote>
+<p>因为npm默认是从国外的源获取和下载包信息，所以这个命令有时候执行很慢，甚至可能因为被墙导致无法正常安装hexo，安装失败的话建议启用科学上网或百度搜索npm加速方法解决</p>
+<p>安装成功后的信息显示如下：</p>
+<p><img src="https://i.loli.net/2019/09/09/u6pJI2h87tMd4ya.png" alt="hexo-01.png"></p>
+<h2 id="初始化hexo">初始化Hexo</h2>
+<p>安装hexo完成后，在电脑中任意位置创建一个文件夹，名字可以随意取，这个文件夹就是存放hexo站点和以后写博客的地方，进入刚刚创建的文件夹，在空白位置右键选择<code>Git Bash Here</code>，</p>
+<h4 id="执行初始化hexo的命令">执行初始化hexo的命令</h4>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>初始化完成过程如下：</p>
+<p><img src="https://i.loli.net/2019/09/09/xLKWra2Un1wgGTX.png" alt="hexo-02.png"></p>
+<h4 id="安装依赖包">安装依赖包</h4>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<p>这个命令是用来安装一些Node.js 模块。命令执行的结果如下：</p>
+<p><img src="https://i.loli.net/2019/09/09/3Hac7liDpb4YTUw.png" alt="hexo-03.png"></p>
+<h4 id="git部署安装">git部署安装</h4>
+<blockquote>
+<p>npm install hexo-deployer-git &ndash;save</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/09/09/R6oJtVXq83ndiAr.png" alt="hexo-04.png"></p>
+<p><strong>完成这一步，hexo的安装就已经完成了。进入站点文件夹查看内容如下：</strong></p>
+<p><img src="https://i.loli.net/2019/09/09/8LNCKx4cnOBi2uP.png" alt="hexo_folder.png"></p>
+<ul>
+<li>注意：
+<ul>
+<li>hexo相关命令均在<strong>站点目录</strong>下执行，用<strong>Git Bash</strong>运行</li>
+<li>站点配置文件为站点目录下的 <code>_config.yml</code>文件，可以配置大部分的参数</li>
+<li>package.json 存放着应用程序的信息，默认已安装<a href="http://embeddedjs.com">EJS</a>, <a href="http://learnboost.github.io/stylus">Stylus</a> 和 <a href="http://daringfireball.net/projects/markdown">Markdown</a> renderer等软件</li>
+<li>scaffold 模版文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
+Hexo的模板是指在新建的markdown文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改</li>
+<li>source 资源文件夹。是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去</li>
+<li>themes 主题文件夹，hexo会根据主题来生成静态页面，主题配置文件为主题文件夹下的<code>_config.yml</code>文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="本地预览hexo博客">本地预览Hexo博客</h2>
+<p>第一次使用hexo，可以先在本地创建服务器使用</p>
+<blockquote>
+<p>hexo generate		# 生成静态页面 //可以直接用<code>hexo g</code> 命令</p>
+<p>hexo s						# 开启本地服务器</p>
+</blockquote>
+<p>执行情况如下：</p>
+<p><img src="https://i.loli.net/2019/09/09/XqLFHUriPtvu4VG.png" alt="hexo-05.png"></p>
+<p><img src="https://i.loli.net/2019/09/09/UMFrNzd1ZVtCkQh.png" alt="hexo-06.png"></p>
+<p>接下来到浏览器输入 localhost:4000 就可以看到页面内容了：</p>
+<p><img src="https://i.loli.net/2019/09/09/HGSqQJ6oDuTRkK5.png" alt="hexoLocalhost.png"></p>
+<p>至此，Hexo博客已经成功搭建在本地了</p>
+<h2 id="部署hexo博客">部署Hexo博客</h2>
+<h3 id="github准备">github准备</h3>
+<ul>
+<li>首先要有一个github帐号，注册并登录github</li>
+<li>然后新建一个仓库， 仓库名为：&lt;Github账号名称&gt;.github.io</li>
+</ul>
+<h3 id="将本地hexo博客推送到新建的github仓库内">将本地Hexo博客推送到新建的github仓库内</h3>
+<p>本教程使用http协议部署hexo博客</p>
+<ul>
+<li>
+<p>修改配置文件<code>blog/_config.yml</code>，修改deploy项的内容（在文件末尾）。</p>
+<pre><code>deploy:
+    type: git
+    repo: https://github.com/&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git
+    branch: master
+</code></pre><p><strong>注意：每个标签冒号后面都要有一个空格</strong></p>
+</li>
+<li>
+<p>输入以下命令将hexo博客部署到github中，返回<code>INFO Deploy done: git</code>即成功推送</p>
+<blockquote>
+<p>hexo clean		   # 清空静态页面</p>
+<p>hexo generate	# 生成静态页面</p>
+<p>hexo deploy		# 上传到仓库</p>
+</blockquote>
+</li>
+</ul>
+<p>等待1分钟左右，浏览器访问网址： <code>https://&lt;Github账号名称&gt;.github.io</code>，自此，Hexo博客已经搭建到了github上</p>
+<h2 id="在hexo博客中发布文章">在Hexo博客中发布文章</h2>
+<h3 id="新建一篇文章">新建一篇文章</h3>
+<ul>
+<li>
+<p>在hexo博客目录下，进入Git Bash命令窗口，输入以下命令：</p>
+<blockquote>
+<p>hexo new &ldquo;Article&rdquo;</p>
+</blockquote>
+</li>
+<li>
+<p>进入博客目录下的/source/_posts/ 文件夹，可以看到已经生成了名为<code>Article.md</code>的博客文件</p>
+<p>如图所示：</p>
+<p><img src="https://i.loli.net/2019/09/09/wD87lS6zhRIJg4y.png" alt="articletest.png"></p>
+</li>
+<li>
+<p>打开<code>Article.md</code>文件，进行编辑即可</p>
+</li>
+</ul>
+<h3 id="给文章添加分类和标签">给文章添加分类和标签</h3>
+<p>在打开的<code>Article.md</code>中，可以看到开头已经自动生成了一段配置列表，在其中设置tags和categories属性：</p>
+<pre><code>title: Article
+date: 2019-09-07 20:46:51
+tags:
+- 博客
+- hexo
+categories: 测试
+</code></pre><h3 id="添加阅读全文按钮">添加<code>阅读全文</code>按钮</h3>
+<ul>
+<li>
+<p>方法一：</p>
+<p>在文章任意你想添加的位置添加如下标签即可</p>
+<pre><code>&lt;!-- more--&gt;
+</code></pre><p>例如<code>jQuery总结.md</code>里的内容是：</p>
+<blockquote>
+<p>---
+title: Article
+date: 2019-09-07 20:46:51
+tags:
+- 博客
+- hexo
+categories: web前端
+---
+## 如何引入jQuery
+**jQuery本质上就是一段普通的JavaScript代码， 通常使用引入外部JS的方式来使用jQuery**
+```
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&rdquo;&gt;&lt;/script&gt;
+```
+&lt;!--more--&gt;
+以下是正文内容，在首页预览内不显示</p>
+</blockquote>
+<p>在网页上显示的效果是：</p>
+<p><img src="https://i.loli.net/2019/09/09/wRlYVvjoWJzBsT6.png" alt="articlepage.png"></p>
+</li>
+<li>
+<p>方法二：</p>
+<p>打开主题配置文件，找到auto_excerpt进行如下修改</p>
+<pre><code>auto_excerpt:
+  enable: true
+  length: 150
+</code></pre><p><strong><code>length</code>为摘要截取的字符长度</strong></p>
+</li>
+</ul>
+<p>注：这两张方向显示的方法显示的样式不一样，可以都尝试一下选择喜欢的方式进行添加</p>
+<h3 id="在文章中插入图片">在文章中插入图片</h3>
+<ul>
+<li>
+<p>方法一：</p>
+<ul>
+<li>
+<p>在hexo目录下，安装插件</p>
+<blockquote>
+<p>npm install hexo-asset-image &ndash;save</p>
+</blockquote>
+</li>
+<li>
+<p>在<code>hexo\source </code>目录下新建一个img文件夹，把图片放置在里面</p>
+</li>
+<li>
+<p>在xxx.md文件中引用图片</p>
+<pre><code>![header]( img/header.jpg)
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>方法二：</p>
+<ul>
+<li>
+<p>在全局配置文件<code>hexo/_config.yml</code>中将<code>post_asset_folder</code>设置为<code>true</code></p>
+</li>
+<li>
+<p>创建文章（在创建的时候，会在<code>hexo/source/_post</code>目录下，生成一个XXX.md文件和一个XXX的文件夹）</p>
+</li>
+<li>
+<p>把XXX这个博文需要展示的图片放在XXX文件夹目录下</p>
+</li>
+<li>
+<p>在XXX.md文件中引入图片的方式</p>
+<pre><code>{% asset_img example.jpg This is an example image %}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>方法三</strong>：</p>
+<p><strong>使用图床工具</strong>（本教程中插入的所有图片都是使用<a href="https://sm.ms/">sm.ms</a>提供的免费图床服务）</p>
+<p>进入sm.ms网站，首页就是上传图片区域，选择要上传的图片点击Upload按钮，底部即会自动生成各种格式的图片链接，复制Markdown专用的链接，粘贴到文章中即可显示图片</p>
+</li>
+</ul>
+<h3 id="启动服务器在本地进行测试">启动服务器，在本地进行测试</h3>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<h2 id="发布文章到github上">发布文章到github上</h2>
+<p>待发布的文章在本地预览无误后，在Git Bash窗口执行以下命令</p>
+<blockquote>
+<p>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+</blockquote>
+<p>在浏览器访问网址： <code>https://&lt;Github账号名称&gt;.github.io</code>，即可看到已经发布的文章</p></div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://niconya.github.io/tags/hexo/">hexo</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span>结尾Slogan</span>
+  </div>
+</footer>
+
+
+
+<script src="https://niconya.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://niconya.github.io/js/zozo.js"></script>
+<script src="https://niconya.github.io/js/highlight.pack.js"></script>
+<link  href="https://niconya.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://niconya.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>

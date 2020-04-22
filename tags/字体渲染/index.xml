@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字体渲染 on 七夜LaNotte</title>
+    <link>https://niconya.github.io/tags/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93/</link>
+    <description>Recent content in 字体渲染 on 七夜LaNotte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>@2020 NicoNya.</copyright>
+    <lastBuildDate>Sun, 22 Mar 2020 22:00:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://niconya.github.io/tags/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用MacType，让Windows的字体变得更漂亮</title>
+      <link>https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mactype%E8%AE%A9windows%E7%9A%84%E5%AD%97%E4%BD%93%E5%8F%98%E5%BE%97%E6%9B%B4%E6%BC%82%E4%BA%AE/</link>
+      <pubDate>Sun, 22 Mar 2020 22:00:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/posts/%E4%BD%BF%E7%94%A8mactype%E8%AE%A9windows%E7%9A%84%E5%AD%97%E4%BD%93%E5%8F%98%E5%BE%97%E6%9B%B4%E6%BC%82%E4%BA%AE/</guid>
+      <description>&lt;p&gt;如何改善 Windows 的字体渲染是一个亘古不变的话题，长期以来大家都有这样的一个印象：Windows 上面的字体渲染相比 MacOS 没有那么细腻清晰，默认的字体时不时以点阵形式出现戳瞎双眼。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

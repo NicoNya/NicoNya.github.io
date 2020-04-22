@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eclipse on 七夜LaNotte</title>
+    <link>https://niconya.github.io/tags/eclipse/</link>
+    <description>Recent content in eclipse on 七夜LaNotte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>@2020 NicoNya.</copyright>
+    <lastBuildDate>Thu, 19 Sep 2019 19:34:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://niconya.github.io/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse导入web项目出现红叉解决办法</title>
+      <link>https://niconya.github.io/posts/eclipse%E5%AF%BC%E5%85%A5web%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%BA%A2%E5%8F%89%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Thu, 19 Sep 2019 19:34:18 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/posts/eclipse%E5%AF%BC%E5%85%A5web%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%BA%A2%E5%8F%89%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>&lt;h4 id=&#34;eclipse导入别人的java-web项目时会出现这种情况&#34;&gt;eclipse导入别人的Java web项目时会出现这种情况：&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;仅项目名出现红叉而其他地方没有红叉的问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这可能是以下几种情况导致的，其解决方法如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;导入项目之前，请确认工作空间编码已设置为utf-8：window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Wrokspace-&amp;gt;Text file encoding-&amp;gt;Other 选择UTF-8。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="NicoNya"/>
+
+  
+  <meta name="description" content="原生Ajax get请求流程   创建ajax请求对象：
+大多数浏览器为XMLHTTPRequest()，高版本IE浏览器为ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;)，低版本IE浏览器为ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;)
+ "/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://niconya.github.io/posts/ajax%E6%80%BB%E7%BB%93/"/>
+
+  
+
+  <title>AJAX总结--JS原生Ajax &amp; jQuery Ajax &middot; 七夜LaNotte</title>
+
+  <link rel="shortcut icon" href="https://niconya.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://niconya.github.io/">
+          <span>七夜LaNotte</span>
+          <img src="https://niconya.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">七夜LaNotte</p>
+      <div class="my_socials">
+        
+        
+        <a href="%20" title="facebook" target="_blank"><i class="remixicon-facebook-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="instagram" target="_blank"><i class="remixicon-instagram-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="twitter" target="_blank"><i class="remixicon-twitter-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="weibo" target="_blank"><i class="remixicon-weibo-fill"></i></a>
+        
+        
+        <a href="https://niconya.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/ajax%E6%80%BB%E7%BB%93/'>AJAX总结--JS原生Ajax &amp; jQuery Ajax</a></h2>
+          <span class="date">2019.09.22</span>
+        </div>
+        <div class="post_content markdown"><h2 id="原生ajax">原生Ajax</h2>
+<h3 id="get请求流程">get请求流程</h3>
+<ul>
+<li>
+<p>创建ajax请求对象：</p>
+<p>大多数浏览器为<code>XMLHTTPRequest()</code>，高版本IE浏览器为<code>ActiveXObject(&quot;Msxml2.XMLHTTP&quot;)</code>，低版本IE浏览器为<code>ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</code></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">function</span>  <span style="color:#a6e22e">ajaxFunction</span>(){
+  	    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xmlHttp</span>;
+  	    <span style="color:#66d9ef">try</span>{ <span style="color:#75715e">// Firefox, Chrome, Opera 8.0+, Safari
+</span><span style="color:#75715e"></span>  	        <span style="color:#a6e22e">xmlHttp</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+  	    }
+  	    <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>){
+  	        <span style="color:#66d9ef">try</span>{<span style="color:#75715e">// Internet Explorer（高版本）
+</span><span style="color:#75715e"></span>  	            <span style="color:#a6e22e">xmlHttp</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ActiveXObject</span>(<span style="color:#e6db74">&#34;Msxml2.XMLHTTP&#34;</span>);
+  	        }
+  	        <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>){
+  	            <span style="color:#66d9ef">try</span>{<span style="color:#75715e">// Internet Explorer（低版本）
+</span><span style="color:#75715e"></span>  	                <span style="color:#a6e22e">xmlHttp</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ActiveXObject</span>(<span style="color:#e6db74">&#34;Microsoft.XMLHTTP&#34;</span>);
+  	            }
+  	            <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>){}
+  	        }
+  	    }
+  	    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">xmlHttp</span>;
+  	}
+</code></pre></div><ul>
+<li>
+<p>使用open方法创建http请求，并设置请求地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//执行get请求
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">get</span>() {
+  
+    <span style="color:#75715e">//1. 创建xmlhttprequest 对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ajaxFunction</span>();
+  
+    <span style="color:#75715e">//2. 发送请求。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">/*	
+</span><span style="color:#75715e">   *	参数一： 请求类型  GET or  POST
+</span><span style="color:#75715e">   *	参数二： 请求的路径
+</span><span style="color:#75715e">   *	参数三： 是否异步， true  or false
+</span><span style="color:#75715e">   */</span>
+    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span> ,<span style="color:#e6db74">&#34;TestServlet&#34;</span> ,<span style="color:#66d9ef">true</span> );
+    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>();
+}
+</code></pre></div></li>
+<li>
+<p>如果发送请求的同时，还想获取数据，那么代码如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//执行get请求
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">get</span>() {
+  
+    <span style="color:#75715e">//1. 创建xmlhttprequest 对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ajaxFunction</span>();
+  
+    <span style="color:#75715e">//2. 设置请求参数
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span> ,<span style="color:#e6db74">&#34;TestServlet?name=aa&amp;age=18&#34;</span> ,<span style="color:#66d9ef">true</span> );
+  
+    <span style="color:#75715e">//3. 获取响应数据 注册监听的意思。  一会准备的状态发生了改变，那么就执行 = 号右边的方法
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+        <span style="color:#75715e">// readyState的值一共有5个状态，参见下表
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// readyState == 4 表示请求已经完成， 再判断状态码是否是200，200表示服务端正常响应(没有报错)
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>){
+            <span style="color:#75715e">//弹出响应的信息
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">responseText</span>);
+        }
+    }
+      
+    <span style="color:#75715e">// 4. 发送请求
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>();
+}
+</code></pre></div></li>
+</ul>
+<h3 id="post请求流程">post请求流程</h3>
+<p>Post请求方式和Get请求基本相同，只是由于post方式传递数据是模仿form表单传递给服务器的,要设置header头协议</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//1. 创建对象
+</span><span style="color:#75715e">// 和get请求一样
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">post</span>() {
+    <span style="color:#75715e">//1. 创建请求对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ajaxFunction</span>();
+
+    <span style="color:#75715e">// 2. 设置请求地址、参数、类型(post、get)
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;post&#34;</span>, <span style="color:#e6db74">&#34;StudentServlet&#34;</span>, <span style="color:#66d9ef">true</span>);
+
+    <span style="color:#75715e">//3. 获取响应数据 注册监听的意思。  一会准备的状态发生了改变，那么就执行 = 号右边的方法
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+        <span style="color:#75715e">//前半段表示 已经能够正常处理。  再判断状态码是否是200
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>){
+            <span style="color:#75715e">//弹出响应的信息
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;请求完成&#34;</span>);
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">h1</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;h1&#34;</span>);
+            <span style="color:#a6e22e">h1</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">responseText</span>;
+        }
+    }
+
+    <span style="color:#75715e">// 4. 如果使用的是post方式带数据，那么 这里要添加头， 说明提交的数据类型是一个经过url编码的form表单数据
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>);
+
+    <span style="color:#75715e">// 5. 发送请求
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 如果是GET请求，参数写在这里是无效的
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;id=555&#34;</span>);
+}
+</code></pre></div><h2 id="jquery-ajax">jQuery Ajax</h2>
+<h3 id="ajax的使用">$.ajax()的使用</h3>
+<p>该方法用于执行Ajax请求，<strong>常用于其他jQuery Ajax方法不能完成的请求</strong>，是jQuery中Ajax系列方法的的底层实现，其他方法都是在它的基础上给我们封装的更方便使用的方法。</p>
+<p>形式：<code>$.ajax(url, [settings]);</code>
+常用字段：</p>
+<ul>
+<li>
+<p><strong>url</strong>：链接地址，字符串</p>
+</li>
+<li>
+<p><strong>type</strong>：<code>“POST&quot;</code>或 <code>“GET&quot;</code>，请求类型</p>
+</li>
+<li>
+<p><strong>data</strong>：需发送到服务器的数据，GET与POST都可以，格式为{A: &lsquo;&hellip;', B: &lsquo;&hellip;'}</p>
+</li>
+<li>
+<p><strong>dataType</strong>：服务器响应的数据类型，字符串表示；当填写为json时，回调函数中无需再对数据反序列化为json</p>
+</li>
+<li>
+<p><strong>success</strong>：请求成功后，服务器回调的函数</p>
+</li>
+<li>
+<p><strong>error</strong>：请求失败后，服务器回调的函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>(<span style="color:#e6db74">&#34;TestServlet&#34;</span>, {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GET&#34;</span>,
+    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>,
+        <span style="color:#a6e22e">uname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>
+    },
+    <span style="color:#a6e22e">dataType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>,
+    <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">status_text</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;status_text: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">status_text</span>);
+    },
+    <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">xhr</span>, <span style="color:#a6e22e">textStatus</span>, <span style="color:#a6e22e">errorThrow</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;请求失败&#34;</span>);
+    }
+});
+</code></pre></div></li>
+</ul>
+<h3 id="get的使用">$.get()的使用</h3>
+<p><code>$.get()</code>方法使用GET方式来进行异步请求，它的语法结构为：</p>
+<p><code>$.get(url, data, func, dataType);</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * 参数：
+</span><span style="color:#75715e"> *  url: 请求地址
+</span><span style="color:#75715e"> *  data: 待发送 Key/value 参数
+</span><span style="color:#75715e"> *  fn: 请求成功后回调函数
+</span><span style="color:#75715e"> *  type: 返回内容格式，xml, html, script, json, text, _default
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">get</span>( <span style="color:#e6db74">&#34;url&#34;</span>,{<span style="color:#a6e22e">pid</span><span style="color:#f92672">:</span><span style="color:#a6e22e">pid</span>} ,<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>,<span style="color:#a6e22e">status_text</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;status_text: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">status_text</span>);
+},<span style="color:#e6db74">&#34;json&#34;</span> );	<span style="color:#75715e">// 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象
+</span></code></pre></div><h3 id="post的使用">$.post()的使用</h3>
+<p><code>$.post()</code>方法使用POST方式来进行异步请求，它的语法结构为：</p>
+<p><code>$.post(url, data, function, dataType);</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * 参数：
+</span><span style="color:#75715e"> *  url: 请求地址
+</span><span style="color:#75715e"> *  data: 待发送 Key/value 参数
+</span><span style="color:#75715e"> *  fn: 请求成功后回调函数
+</span><span style="color:#75715e"> *  type: 返回内容格式，xml, html, script, json, text, _default
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">post</span>( <span style="color:#e6db74">&#34;url&#34;</span>,{<span style="color:#a6e22e">pid</span><span style="color:#f92672">:</span><span style="color:#a6e22e">pid</span>} ,<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>,<span style="color:#a6e22e">status</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;status_text: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">status_text</span>);
+},<span style="color:#e6db74">&#34;json&#34;</span> );	<span style="color:#75715e">// 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象
+</span></code></pre></div><h3 id="getjson的使用">$.getJSON();的使用</h3>
+<p><code>$.getJSON()</code>是专门为ajax获取json数据而设置的，该方法使用GET方式执行Ajax请求，从服务器加载JSON格式数据，并且支持跨域调用，它的语法结构为：</p>
+<p><code>$.getJSON(url, data, func);</code></p>
+<p>因为确定服务器返回的是json编码的数据，所以相较于$.get()不用再指定dataType。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;url&#34;</span>, {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>} <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">json</span>){
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">json</span>);
+});
+</code></pre></div><h3 id="以上四个方法的关系和区别">以上四个方法的关系和区别？</h3>
+<p><code>$.ajax()</code>是jQuery的底层AJAX实现，<code>$.get()</code>和<code>$.post()</code>是简单易用的jQuery高层AJAX实现</p>
+<p><code>$.getJSON()</code>是通过 HTTP GET 请求载入 JSON 数据。</p></div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://niconya.github.io/tags/ajax/">AJAX</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span>结尾Slogan</span>
+  </div>
+</footer>
+
+
+
+<script src="https://niconya.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://niconya.github.io/js/zozo.js"></script>
+<script src="https://niconya.github.io/js/highlight.pack.js"></script>
+<link  href="https://niconya.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://niconya.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>

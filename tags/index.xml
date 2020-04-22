@@ -1,15 +1,178 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 七夜LaNotte</title>
-    <link>/tags/</link>
+    <link>https://niconya.github.io/tags/</link>
     <description>Recent content in Tags on 七夜LaNotte</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh_CN</language>
-    <copyright>©2020 NicoNya.</copyright>
+    <language>zh-cn</language>
+    <copyright>@2020 NicoNya.</copyright>
+    <lastBuildDate>Sun, 12 Apr 2020 17:59:25 +0800</lastBuildDate>
     
-        <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://niconya.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://niconya.github.io/tags/linux/</link>
+      <pubDate>Sun, 12 Apr 2020 17:59:25 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://niconya.github.io/tags/vim/</link>
+      <pubDate>Sun, 12 Apr 2020 17:59:25 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oh-my-zsh</title>
+      <link>https://niconya.github.io/tags/oh-my-zsh/</link>
+      <pubDate>Fri, 10 Apr 2020 23:45:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/oh-my-zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WSL</title>
+      <link>https://niconya.github.io/tags/wsl/</link>
+      <pubDate>Fri, 10 Apr 2020 23:45:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/wsl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ZSH</title>
+      <link>https://niconya.github.io/tags/zsh/</link>
+      <pubDate>Fri, 10 Apr 2020 23:45:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LxRunOffline</title>
+      <link>https://niconya.github.io/tags/lxrunoffline/</link>
+      <pubDate>Thu, 09 Apr 2020 22:48:25 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/lxrunoffline/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MacType</title>
+      <link>https://niconya.github.io/tags/mactype/</link>
+      <pubDate>Sun, 22 Mar 2020 22:00:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/mactype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>字体渲染</title>
+      <link>https://niconya.github.io/tags/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Sun, 22 Mar 2020 22:00:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDEA</title>
+      <link>https://niconya.github.io/tags/idea/</link>
+      <pubDate>Thu, 14 Nov 2019 21:10:43 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/idea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://niconya.github.io/tags/springboot/</link>
+      <pubDate>Thu, 14 Nov 2019 21:10:43 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://niconya.github.io/tags/ajax/</link>
+      <pubDate>Sun, 22 Sep 2019 14:25:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/ajax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>https://niconya.github.io/tags/javaweb/</link>
+      <pubDate>Sun, 22 Sep 2019 14:23:38 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/javaweb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cookie</title>
+      <link>https://niconya.github.io/tags/cookie/</link>
+      <pubDate>Fri, 20 Sep 2019 13:16:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/cookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Session</title>
+      <link>https://niconya.github.io/tags/session/</link>
+      <pubDate>Fri, 20 Sep 2019 13:16:15 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/session/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eclipse</title>
+      <link>https://niconya.github.io/tags/eclipse/</link>
+      <pubDate>Thu, 19 Sep 2019 19:34:18 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/eclipse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hexo</title>
+      <link>https://niconya.github.io/tags/hexo/</link>
+      <pubDate>Mon, 09 Sep 2019 20:21:03 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/hexo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://niconya.github.io/tags/javascript/</link>
+      <pubDate>Sat, 07 Sep 2019 20:46:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://niconya.github.io/tags/jquery/</link>
+      <pubDate>Sat, 07 Sep 2019 20:46:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/tags/jquery/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

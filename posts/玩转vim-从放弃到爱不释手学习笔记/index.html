@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="NicoNya"/>
+
+  
+  <meta name="description" content="本篇是b站up主PegasusWang老师的玩转Vim 从放弃到爱不释手教程笔记，在大学的时候使用过vim，但只是停留非常低级的操作阶段，也在其他地方零散的学习过Vim，直到在b站发现了PegasusWang的视频，非常不错，是目前看到过最好的vim入门教程，经过几天的学习，Vim已经近乎熟练，再次感谢PegasusWang的无私奉献，笔记还会持续更新。
+"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://niconya.github.io/posts/%E7%8E%A9%E8%BD%ACvim-%E4%BB%8E%E6%94%BE%E5%BC%83%E5%88%B0%E7%88%B1%E4%B8%8D%E9%87%8A%E6%89%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+
+  
+
+  <title>《玩转Vim 从放弃到爱不释手》学习笔记 &middot; 七夜LaNotte</title>
+
+  <link rel="shortcut icon" href="https://niconya.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://niconya.github.io/">
+          <span>七夜LaNotte</span>
+          <img src="https://niconya.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">七夜LaNotte</p>
+      <div class="my_socials">
+        
+        
+        <a href="%20" title="facebook" target="_blank"><i class="remixicon-facebook-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="instagram" target="_blank"><i class="remixicon-instagram-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="twitter" target="_blank"><i class="remixicon-twitter-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="weibo" target="_blank"><i class="remixicon-weibo-fill"></i></a>
+        
+        
+        <a href="https://niconya.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/%E7%8E%A9%E8%BD%ACvim-%E4%BB%8E%E6%94%BE%E5%BC%83%E5%88%B0%E7%88%B1%E4%B8%8D%E9%87%8A%E6%89%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>《玩转Vim 从放弃到爱不释手》学习笔记</a></h2>
+          <span class="date">2020.04.12</span>
+        </div>
+        <div class="post_content markdown"><p>本篇是b站up主<a href="https://space.bilibili.com/288339968">PegasusWang</a>老师的<a href="https://www.imooc.com/coursescore/1129">玩转Vim 从放弃到爱不释手</a>教程笔记，在大学的时候使用过vim，但只是停留非常低级的操作阶段，也在其他地方零散的学习过Vim，直到在b站发现了PegasusWang的视频，非常不错，是目前看到过最好的vim入门教程，经过几天的学习，Vim已经近乎熟练，再次感谢PegasusWang的无私奉献，笔记还会持续更新。</p>
+<h1 id="vim编辑器的四种模式">Vim编辑器的四种模式</h1>
+<h2 id="normal普通模式">Normal(普通)模式</h2>
+<p><strong>使用vim打开文件时显示的模式，只可以查看，不可以做任何编辑操作</strong></p>
+<p>进行所有操作之后可以单击<code>u</code>**(undo)**来撤销操作</p>
+<h3 id="移动操作">移动操作</h3>
+<p><code>w/W</code>  移到下一-个word/WORD开头。<code>e/E</code> 下一个word/WORD尾</p>
+<p><code>b/B </code>  回到上一-个word/WORD开头，可以理解为backword</p>
+<p>word指的是以非空白符分割的单词，WORD以空白符分割的单词</p>
+<h3 id="搜索操作">搜索操作</h3>
+<p>同一行快速移动的方式其实是搜索一个字符并且移动到该字符</p>
+<p><code>f{char} </code>  可以把光标移动到当前行的char字符上，<code>t</code>把光标移动到char的前一个字符</p>
+<p>如果第一次没搜到，可以用分号<code>;</code>和逗号<code>,</code>继续搜该行里的下一个/上一个char字符</p>
+<p>大写的<code>F{char}</code>表示反过来搜前面的字符</p>
+<h3 id="快速移动到一行的行首或者行尾">快速移动到一行的行首或者行尾</h3>
+<p><code>0</code>  移动到行首第一个字符，<code>^</code>移动到第一个非空白字符</p>
+<p><code>$</code>  移动到行尾，<code>g_</code>  移动到行尾非空白字符</p>
+<p>记住常用的<code>0</code>和<code>$</code>就可以满足日常需求了</p>
+<h3 id="页面移动">页面移动</h3>
+<p><code>gg / G </code>  移动到文件开头和结尾，你可以使用ctrl+o快速返回</p>
+<p><code>H / M / L</code>  跳转到屏幕的开头(Head)，中间(Middle)和结尾(Lower)</p>
+<p><code>Ctrl+u</code> / <code> ctrl+f</code>   上下翻页 (upword/forward)</p>
+<p><code>zz</code>  把当前光标放置到屏幕置中间</p>
+<h3 id="删除操作">删除操作</h3>
+<p><code>x</code>  快速删除一个字符</p>
+<p><code>dw</code>  **delete word：**快速删除一个单词</p>
+<p><code>dd</code>  快速删除当前整行内容</p>
+<h3 id="修改操作">修改操作</h3>
+<p>常用有三个，<code>r</code> (replace) ， <code>c</code> (change) ，<code>s</code>(substitute)</p>
+<p><code>r</code>可以替换一个字，<code>s</code>替换并进入插入模式</p>
+<p>*<code>cw</code>  <strong>change word：</strong> 快速删除一个单词并且进入编辑模式</p>
+<h3 id="查询操作">查询操作</h3>
+<p><code>/ 或者 ?</code>  进行前向或者反向搜索</p>
+<p><code>n / N</code>  跳转到下一个或者上一个匹配</p>
+<h3 id="normal下的复制粘贴">Normal下的复制粘贴</h3>
+<p>复制剪切分别使用<code>y</code>**(yank)**和<code>p</code>**(put)**，剪切用<code>d</code></p>
+<p>我们可以使用<code>v</code>**(visual)**命令进入可视模式选中所要复制的地方，然后使用<code>p</code>粘贴</p>
+<p>配合文本对象：比如使用<code>yw</code>复制一个单词， <code>yy</code>复制一行</p>
+<h2 id="编辑插入模式">编辑/插入模式</h2>
+<p><strong>普通模式下单击以下字母进入编辑/插入模式</strong></p>
+<p><code>i</code>  <strong>insert：</strong> 在当前光标位置前面开始插入</p>
+<p><code>I</code>  <strong>insert before line：</strong> 光标调到当前行最前面开始插入</p>
+<p><code>a</code>  **append： **在当前光标位置后面开始插入</p>
+<p><code>A</code>  <strong>append after line：</strong> 光标跳到当前行最后面开始插入</p>
+<p><code>o</code>  <strong>open a line below：</strong> 在当前光标所在行下面新加一行开始插入</p>
+<p><code>O</code>  <strong>open a line above：</strong> 在当前光标所在行上面新加一行开始插入</p>
+<blockquote>
+<p>按Esc可以退出编辑模式进入普通模式，我在<code>.vimrc</code>里配置了<code>jj</code>映射来方便地进入普通模式</p>
+</blockquote>
+<h3 id="快捷键">快捷键</h3>
+<p><code>gi</code>  快速返回上一次编辑的位置</p>
+<h4 id="终端中和vim插入模式下都可以使用的快捷键">终端中和vim插入模式下都可以使用的快捷键：</h4>
+<p><code>ctrl+h </code>  删除上一个字符</p>
+<p><code>ctrl+w </code>  删除上一个单词</p>
+<p><code>ctrl+u </code>  删除当前行</p>
+<p><code>ctrl+a </code>  移动到开头</p>
+<p><code>ctrl+e</code>  移动到结尾</p>
+<p><code>ctrl+b </code>  往前移动</p>
+<p><code>ctrl+f </code>  往后移动</p>
+<h2 id="命令模式">命令模式</h2>
+<p><strong>普通模式下单击冒号<code>:</code>进入命令模式</strong></p>
+<h3 id="保存退出方式">保存退出方式</h3>
+<p><code>:q</code>  quite 退出</p>
+<p><code>:w</code>  write 写入/保存</p>
+<p><code>:wq</code>  write &amp; quite 保存然后退出</p>
+<p><code>ZZ</code>  作用等同于<code>:wq</code></p>
+<p><code>:e!</code>  禁止刚刚所有修改</p>
+<h3 id="多文件操作">多文件操作</h3>
+<p><strong><code>Buffer</code>、<code>Window</code>、<code>Tab</code>区别：</strong></p>
+<ul>
+<li><code>Buffer</code>是指打开的一个文件的内存缓冲区
+<ul>
+<li>Vim打开一个文件后会加载文件内容到缓冲区</li>
+<li>之后的修改都是针对内存中的缓冲区,并不会直接保存到文件</li>
+<li>直到我们执行<code>:w</code> (write)的时候才会把修改内容写入到文件里</li>
+</ul>
+</li>
+<li><code>Window</code>是Buffer可视化的分割区域
+<ul>
+<li>一个缓冲区可以分割成多个窗口, 每个窗口也可以打开不同缓冲区</li>
+<li>每个窗口可以继续被无限分割(看你屏幕是否够大)</li>
+</ul>
+</li>
+<li><code>Tab</code>可以组织窗口为一-个工作区.
+<ul>
+<li>Vim的Tab和其他编辑器不太一样，可以想象成Linux的虚拟桌面</li>
+<li>比如一个Tab全用来编辑Python文件，一个Tab全是HTML文件</li>
+<li>相比窗口，Tab一般用的比较少，Tab太多管理起来也比较麻烦</li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --></p>
+<p><strong>打开多个Buffer(缓冲区)：</strong></p>
+<ul>
+<li>使用<code>:e {文件名}</code>可以打开多个文件，这时虽然只有一个窗口，但是却有多个Buffer(缓冲区)</li>
+</ul>
+<p><strong>在Buffer(缓冲区)之间切换：</strong></p>
+<ul>
+<li>
+<p>使用<code>:ls</code>会列举当前缓冲区，然后使用<code>:b n</code>跳转到第n个缓冲区</p>
+</li>
+<li>
+<p>使用<code>:bpre</code>  <code> :bnext</code>  <code>:bfirst</code>  <code>:blast</code>来跳转到 上一个/下一个/第一个/最后一个 缓冲区</p>
+</li>
+<li>
+<p>或者用<code>:b {buffe名称}</code>加上tab补全来跳转缓冲区</p>
+</li>
+</ul>
+<p><strong>分割Window(窗口)命令：</strong></p>
+<ul>
+<li><code>&lt;Ctrl+w&gt;+s</code>或<code>:sp</code>水平分割</li>
+<li><code>&lt;Ctrl+w&gt;+v</code>或<code>:vs</code>垂直分割，<code>:q</code> 来退出分屏</li>
+<li>使用<code>:sp {文件路径}</code>或<code>:vs {文件路径}</code>可以在横竖分屏时直接打开指定的文件</li>
+</ul>
+<p><strong>在Window(窗口)之间切换：</strong></p>
+<ul>
+<li>
+<p><code>&lt;Ctrl+w&gt;+w</code>  在窗口间循环切换</p>
+</li>
+<li>
+<p><code>&lt;Ctrl+w&gt;+h</code>  切换到左边的窗口</p>
+</li>
+<li>
+<p><code>&lt;Ctrl+w&gt;+j</code>  切换到下边的窗口</p>
+</li>
+<li>
+<p><code>&lt;Ctrl+w&gt;+k</code>  切换到上边的窗口</p>
+</li>
+<li>
+<p><code>&lt;Ctrl+w&gt;+l</code>  切换到右边的窗口</p>
+</li>
+</ul>
+<blockquote>
+<p>可以使用<code>:q</code> /<code>:wq</code>来关闭分屏</p>
+<p>切换窗口快捷键就是vim内上下左右对应的<code>k</code> <code>j</code> <code>h</code> <code>l</code>方向键，记住<code>j</code>是下就好</p>
+<p>将切换窗口的方向快捷键改为大写效果是移动窗口</p>
+<p>在不同窗口编辑同一个Buffer，所有的Buffer都会生效，因为都是编辑的同一块内存里的内容</p>
+</blockquote>
+<h3 id="替换操作">替换操作</h3>
+<p>substitute命令允许我们查找并且替换掉文本，并且支持正则式</p>
+<p><code>:[range]s[ubstitute]/{pattern}/{string}/[flags]</code></p>
+<p><code>range</code>  表示范围，比如：<code>10, 20</code>表示10-20行，<code>%</code>表示全部</p>
+<p><code>s</code>  **substitute：**表示替换</p>
+<p><code>pattern</code>  是要替换的文本，<code>string </code>  是替换后文本</p>
+<p><code>flage</code>  是替换标志，一般有：</p>
+<ul>
+<li><code>g</code>  **global：**表示全局范围内执行</li>
+<li><code>c</code>  **confirm：**表示确认，可以确认或者拒绝修改</li>
+<li><code>n</code>  **number：**报告匹配到的次数而不替换，可以用来查询某个单词出现的次数，例如：<code>:% s/java//n</code> (因为是查询所以java后面留空)</li>
+</ul>
+<blockquote>
+<p>例如：</p>
+<p><code>:% s/java/python/g</code></p>
+<p>表示在整个文件内把“java”替换为“python”，<code>%</code>：所有文件	<code>s</code>：替换	<code>g</code>：全局替换</p>
+</blockquote>
+<h3 id="解决粘贴缩进混乱的操作">解决粘贴缩进混乱的操作</h3>
+<p><code>:set paste</code>  保留原格式粘贴，先执行该命令，再按<code>i</code>进入编辑模式粘贴就会保留原文件格式</p>
+<p><code>:set nopaste</code>  关闭粘贴命令</p>
+<p><code>h paste</code>  显示粘贴命令帮助，<code>:exit</code>退出帮助</p>
+<h3 id="其他操作">其他操作</h3>
+<p><code>:set nu</code>  显示行号</p>
+<p><code>:% s/java/python/g</code>  全局替换字符，把“java”替换为“python”	<code>%</code>：所有文件	<code>s</code>：替换	<code>g</code>：全局替换</p>
+<h2 id="visual可视模式">Visual(可视)模式</h2>
+<p><code>v</code>  进入<strong>VISUAL</strong>选择模式，会选中当前字符，左右移动光标可以连续选中左右字符，上下移动光标会选中整行字符</p>
+<p><code>V</code>  选中当前行，上下移动光标可以连续选中上下整行字符</p>
+<p><code>ctrl + v</code>  进入<strong>VISUAL BLOCK</strong>：列选择/块选择模式，用于列编辑</p>
+<p><strong>在visual模式下：</strong></p>
+<p><code>y</code>  **yank：**复制</p>
+<p><code>d</code>  剪切</p>
+<p><code>p</code>  **put：**粘贴</p>
+<p><code>dd</code>  删除一行</p>
+<p><code>yy</code>  复制一行</p>
+<h1 id="给vim更换配色">给vim更换配色</h1>
+<h2 id="使用普通命令方式更换第三方配色">使用普通命令方式更换第三方配色</h2>
+<p>以<code>hybrid</code>主题为例，先在用户根目录下clone好主题的仓库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/w0ng/vim-hybrid.git
+</code></pre></div><p>然后在用户根目录下创建<code>.vim/colors</code>文件夹，如果没有<code>.vim</code>文件夹需要先创建好<code>.vim</code>文件夹</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir ~/.vim
+mkdir ~/.vim/colors
+</code></pre></div><p>接着把hybird主题文件夹内的Vim主题文件拷贝到刚创建好的colors文件夹内</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cp vim-hybrid/colors/hybrid.vim ./.vim/colors
+</code></pre></div><p>最后用Vim任意打开一个文件，键入<code>:colorscheme</code>，敲一个空格后按<code>ctrl+d</code>，就可以看到Vim可以更换的所有主题配色了</p>
+<p>接着输入你想更换的配色的名字，点击回车，可以看到vim编辑器的配色就被成功更改了</p>
+<blockquote>
+<p>这种方式不能持久化的更改vim编辑器的配色</p>
+</blockquote>
+<h1 id="vim配置文件的使用">Vim配置文件的使用</h1>
+<p>Vim里非常多常用的设置，比如<code>:set number</code>设置行号，之前的使用都是在Vim里临时设置，没法持久化，每次都要重新设置</p>
+<p>但是Vim还提供了一种持久化配置的方式，<strong>使用<code>.vimrc</code>配置文件</strong>，让我们自定义配置</p>
+<h2 id="新建vim配置文件">新建Vim配置文件</h2>
+<p>Linux/Unix下新建一个隐藏文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim ~/.vimrc
+</code></pre></div><p>接着我们就可以开始自定义自己的配置了</p>
+<h2 id="vimrc配置文件的内容">Vimrc配置文件的内容</h2>
+<p>配置文件内需要设置的东西有以下四种：</p>
+<ul>
+<li>
+<p>常用设置，我们可以把常用的设置写到<code>.vimrc</code>内避免每次打卡爱vim重新设置，比如：</p>
+<ul>
+<li>
+<p><code>set number</code>  设置行号，<code>colorscheme xxx</code>  设置主题</p>
+</li>
+<li>
+<p>Vim内有非常多这种配置，可以参考别人的配置，常用的有：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#e6db74">&#34; 设置行号</span>
+set number
+<span style="color:#e6db74">&#34; 设置主题</span>
+colorscheme hybrid
+<span style="color:#e6db74">&#34; 按F2进入粘贴模式</span>
+set pastetoggle<span style="color:#f92672">=&lt;</span>F2<span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">&#34; 高亮搜索</span>
+set hlsearch
+<span style="color:#e6db74">&#34; 设置折叠方式</span>
+set foldmethod<span style="color:#f92672">=</span>indent 
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Vim映射配置，Vim中的映射比较复杂，源于Vim有多种模式</p>
+<ul>
+<li>
+<p>设置一下leader键<code>let mapleader = ‘,’</code>常用的是逗号或空格</p>
+</li>
+<li>
+<p>比如<code>noremap &lt;leader&gt;w :w&lt;cr&gt;</code>保存文件</p>
+</li>
+<li>
+<p>在下面映射章节有详细讲解Vim中的映射概念和常用的映射配置</p>
+</li>
+</ul>
+</li>
+<li>
+<p>插件的配置，现代化的Vim可以通过插件管理器安装插件</p>
+<ul>
+<li>通过插件可以无限扩充Vim的功能</li>
+<li>使用插件需要具备一定的Vim配置知识</li>
+<li>在下面插件章节有详细讲解如何安装和使用常用插件</li>
+</ul>
+</li>
+<li>
+<p>Vim脚本函数配置，Vim有可以自定义的脚本语言vimscript</p>
+<ul>
+<li>Vim脚本对于Vim高级玩家来说可以实现强大的vim插件</li>
+<li>初学者知道有这个概念就好， vim脚本是一种简单的脚本语言</li>
+<li>可以通过vimscript实现更多vim的控制，开发自己的插件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>可以研究下github上vim-go教程<a href="https://github.com/fatih/vim-go-tutorial">vim-go-tutorial</a>的vimrc文件</strong></p>
+<p><strong>这个文件是使用vim写go语言的一个最小配置，基本涵盖了一个编程语言需要设置的选项，可以用来参考学习</strong></p>
+<p>通过把vimrc配置放到git版本备库管理，可以同步到其他电脑或者服务器上</p>
+</blockquote>
+<h1 id="vim映射的使用">Vim映射的使用</h1>
+<p><strong>Vim映射就是把「一个操作」映射到「另一个操作」</strong></p>
+<p>如果你不满现在的按键设置，比如vim本来的命令，或者你想映射一些方便的快捷键时，按照你的意愿定制Vim</p>
+<h2 id="基本映射">基本映射</h2>
+<p><strong>基本映射指的是normal模式下的映射，当然还有其他模式的映射</strong></p>
+<p>使用<code>map</code>就可以实现映射。比如：</p>
+<p><code>map- x</code>  表示按<code>-</code>就会删除字符</p>
+<p><code>map &lt;space&gt; viw</code>  表示按下空格的时候选中整个单词</p>
+<p><code>map &lt;c-d&gt; dd</code>  表示使用<code>ctrl+d</code>执行<code>dd</code>删除一行</p>
+<h2 id="模式映射">模式映射</h2>
+<p><strong>Vim常用模式<code>normal</code>/<code>visual</code>/<code>insert</code>都可以定义映射</strong></p>
+<p>用<code>nmap</code>/<code>vmap</code>/<code>imap</code>定义映射只在<code>normal</code>/<code>visual</code>/<code>insert</code>分别有效，比如：</p>
+<p><code>:vmap \ U</code>  表示把在<code>visual模式</code>下选中的文本用<code>\</code>转换大小写  (u/U转换大小写)</p>
+<p><code>:imap &lt;d-d&gt; &lt;Esc&gt;ddi</code>  表示在<code>insert模式</code>下用<code>ctrl+d</code>删除一行</p>
+<h2 id="递归映射与非递归映射">递归映射与非递归映射</h2>
+<h3 id="递归映射">递归映射</h3>
+<p>*<strong>map系列命令有递归的风险</strong>，例如定义了以下两个映射：</p>
+<p><code>:nmap \ -</code>  和  <code>:nmap - dd</code></p>
+<p>当你按下<code>\</code>时, Vim会解释其为<code>-</code>，我们又映射了<code>-</code>，Vim会继续解析为<code>dd</code>，即它会删除整行，即有点类似于递归</p>
+<p>通常情况是你安装了一个插件，插件映射了同一个按键的不同行为，有冲突就会有一个失效，解决方案就是使用非递归映射</p>
+<h3 id="非递归映射">非递归映射</h3>
+<p><strong>Vim提供了非递归映射,这些命令不会递归解释</strong></p>
+<p>使用<code>*map</code>对应的<code>nnoremap</code>/<code>vnoremap</code>/<code>inoremap</code></p>
+<p>「任何」时候都应该使用非递归映射，防止自己的命令和其他命令冲突</p>
+<h3 id="一些方便的映射">一些方便的映射</h3>
+<p>以上的设置映射的命令都可以去掉冒号<code>:</code>持久化到<code>.vimrc</code>文件内，这里提供一些常用的映射配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#e6db74">&#34; 把leader键映射为&#39;,&#39;</span>
+let mapleader<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span> 
+<span style="color:#e6db74">&#34; 使用 jj 进入 normal 模式</span>
+inoremap jj <span style="color:#f92672">&lt;</span>Esc<span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">^</span>
+<span style="color:#e6db74">&#34; 使用 leader+w 直接保存</span>
+inoremap <span style="color:#f92672">&lt;</span>leader<span style="color:#f92672">&gt;</span>w <span style="color:#f92672">&lt;</span>Esc<span style="color:#f92672">&gt;:</span>W<span style="color:#f92672">&lt;</span>Cr<span style="color:#f92672">&gt;</span>
+noremap <span style="color:#f92672">&lt;</span>leader<span style="color:#f92672">&gt;</span>w :W<span style="color:#f92672">&lt;</span>cr<span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">&#34; 切换buffer</span>
+nnoremap <span style="color:#f92672">&lt;</span>silent<span style="color:#f92672">&gt;</span> [b :bprevious<span style="color:#f92672">&lt;</span>CR<span style="color:#f92672">&gt;</span>
+nnoremap <span style="color:#f92672">&lt;</span>silent<span style="color:#f92672">&gt;</span> [n :bnext<span style="color:#f92672">&lt;</span>CR<span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">&#34; 使用 ctrl+h/j/k/l 切换 window</span>
+noremap <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>h<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>w<span style="color:#f92672">&gt;</span>h
+noremap <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>j<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>w<span style="color:#f92672">&gt;</span>j
+noremap <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>k<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>w<span style="color:#f92672">&gt;</span>k
+noremap <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>l<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>C<span style="color:#f92672">-</span>w<span style="color:#f92672">&gt;</span>l
+<span style="color:#e6db74">&#34; 使用 sudo 强制写入</span>
+cnoremap w<span style="color:#f92672">!!</span> w <span style="color:#f92672">!</span>sudo tee <span style="color:#f92672">%</span> <span style="color:#f92672">&gt;/</span>dev<span style="color:#f92672">/</span>null
+<span style="color:#e6db74">&#34; json格式化 这是命令模式下的映射</span>
+com<span style="color:#f92672">!</span> FormatJSON <span style="color:#f92672">%!</span>python3 <span style="color:#f92672">-</span>m json. tool
+</code></pre></div><blockquote>
+<p><strong>可以研究下<a href="http://www.shouce.ren/api/view/a/9602">笨方法学Vimscript</a>这本书中映射章节的内容</strong></p>
+</blockquote>
+<h1 id="vim插件的使用">Vim插件的使用</h1>
+<p><strong>和其他现代流行编辑器一样, Vim同样支持强大的插件扩展</strong></p>
+<p>Vim 插件是使用vimscript或者其他语言编写的vim功能扩展，编辑器自带的功能有限，有了插件之后几乎可以无限制扩充其功能</p>
+<p>网络上比如github.com等有很多开源的vim插件可以使用</p>
+<h2 id="插件的安装">插件的安装</h2>
+<p>原始的方式是直接clone插件代码，如今vim有很多插件管理器可供选择，你可以选择一个顺手的使用</p>
+<p>常见的有<code>vim-plug,</code>、<code>Vundle</code>、 <code>Pathogen</code>、<code> Dein.Vim</code>、<code>volt</code>等</p>
+<p>综合性能、 易用性、文档等几个方面，这里推荐使用<code>vim-plug</code></p>
+<h3 id="vim-plug的安装">vim-plug的安装</h3>
+<p>进入vim-plug插件的github仓库：https://github.com/junegunn/vim-plug</p>
+<p>根据文档内容，在终端输入命令安装vim-plug：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fLo ~/.vim/autoload/plug.vim --create-dirs <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre></div><p>如果使用的是Neovim，则使用以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre></div><h3 id="vim-plug的使用">vim-plug的使用</h3>
+<h4 id="编写配置文件">编写配置文件</h4>
+<p>在<code>.vimrc</code>文件内写入一行<code>call plug#begin()</code>，指定插件安装的目录</p>
+<p>然后在中间列出要安装的插件，格式为<code>Plug 'xxx'</code>，注意插件名称前后必须使用单引号</p>
+<p>最后在结尾加上一行<code>call plug#end()</code>就可以安装插件了</p>
+<p>可以参考文档给出的示例进行编写：</p>
+<pre><code>&quot; Specify a directory for plugins：指定一个插件目录
+&quot; - For Neovim: stdpath('data') . '/plugged'
+&quot; - Avoid using standard Vim directory names like 'plugin'：避免使用标准的Vim目录名称，例如“插件”
+call plug#begin('~/.vim/plugged')
+
+&quot; Make sure you use single quotes：确保使用单引号
+&quot; 列出要安装的插件，例如：
+Plug 'mhinz/vim-startify'
+
+
+&quot; Initialize plugin system：初始化插件系统
+call plug#end()
+</code></pre><blockquote>
+<p>这里起作用的代码其实就三行：<code>call plug#begin('~/.vim/plugged')</code>、<code>Plug 'mhinz/vim-startify'</code>和<code>call plug#end()</code></p>
+</blockquote>
+<h4 id="安装第一个vim插件">安装第一个vim插件</h4>
+<p>我们将安装vim-startify，一个好用的vim开屏插件：<a href="https://github.com/mhinz/vim-startify">vim-startify</a></p>
+<p>根据仓库内的文档教程，修改你的.<code>vimrc</code>文件，增加该插件名称：<code>Plug 'mhinz/vim-startify'</code></p>
+<p>重新启动Vim或者使用<code>:source ~/.vimrc</code> ，然后执行<code>:PlugInstall</code>就可以开始安装插件了</p>
+<p>安装完成后，回到终端重新启动vim就可以看到该插件的效果了，其他插件的安装方式也都类似</p>
+<blockquote>
+<p>Vim插件网站：https://vimawesome.com/</p>
+</blockquote></div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://niconya.github.io/tags/vim/">Vim</a>
+                
+                <a href="https://niconya.github.io/tags/linux/">Linux</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span>结尾Slogan</span>
+  </div>
+</footer>
+
+
+
+<script src="https://niconya.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://niconya.github.io/js/zozo.js"></script>
+<script src="https://niconya.github.io/js/highlight.pack.js"></script>
+<link  href="https://niconya.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://niconya.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>

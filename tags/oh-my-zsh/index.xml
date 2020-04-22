@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oh-my-zsh on 七夜LaNotte</title>
+    <link>https://niconya.github.io/tags/oh-my-zsh/</link>
+    <description>Recent content in oh-my-zsh on 七夜LaNotte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>@2020 NicoNya.</copyright>
+    <lastBuildDate>Fri, 10 Apr 2020 23:45:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://niconya.github.io/tags/oh-my-zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux非root用户 Oh My ZSH 使用攻略</title>
+      <link>https://niconya.github.io/posts/linux%E9%9D%9Eroot%E7%94%A8%E6%88%B7oh-my-zsh-%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5/</link>
+      <pubDate>Fri, 10 Apr 2020 23:45:51 +0800</pubDate>
+      
+      <guid>https://niconya.github.io/posts/linux%E9%9D%9Eroot%E7%94%A8%E6%88%B7oh-my-zsh-%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;由于&lt;code&gt;oh-my-zsh&lt;/code&gt;相关文件是每个用户独有的，不是所有用户共用一份的，在服务器上给root用户配好了oh-my-zsh，但大部分时候要用非root用户操作，用惯了oh-my-zsh，没有这个很难受，打算给自己普通用户也安装一个，搜了很多教程折腾了一晚才配好了，遇到不少问题，打算记录一下。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

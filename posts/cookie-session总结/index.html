@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="NicoNya"/>
+
+  
+  <meta name="description" content="Cookie Cookie是什么 Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。
+为什么要使用Cookie 因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录信
+"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://niconya.github.io/posts/cookie-session%E6%80%BB%E7%BB%93/"/>
+
+  
+
+  <title>Cookie &amp; Session总结 &middot; 七夜LaNotte</title>
+
+  <link rel="shortcut icon" href="https://niconya.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://niconya.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://niconya.github.io/">
+          <span>七夜LaNotte</span>
+          <img src="https://niconya.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">七夜LaNotte</p>
+      <div class="my_socials">
+        
+        
+        <a href="%20" title="facebook" target="_blank"><i class="remixicon-facebook-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="instagram" target="_blank"><i class="remixicon-instagram-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="twitter" target="_blank"><i class="remixicon-twitter-fill"></i></a>
+        
+        
+        
+        <a href="%20" title="weibo" target="_blank"><i class="remixicon-weibo-fill"></i></a>
+        
+        
+        <a href="https://niconya.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/cookie-session%E6%80%BB%E7%BB%93/'>Cookie &amp; Session总结</a></h2>
+          <span class="date">2019.09.20</span>
+        </div>
+        <div class="post_content markdown"><h2 id="cookie">Cookie</h2>
+<h3 id="cookie是什么">Cookie是什么</h3>
+<p>Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。</p>
+<h3 id="为什么要使用cookie">为什么要使用Cookie</h3>
+<p>因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录信</p>
+<p>息；引入cookie之后，在请求时会把cookie附加到请求头中，这样服务端一读取请求头就知道了这次请求是哪个用户发起的。</p>
+<h3 id="什么情况下要使用cookie">什么情况下要使用Cookie</h3>
+<p>Cookie的使用分为在业务程序中显式使用和通过容器隐式使用。</p>
+<ul>
+<li>隐式使用： 首次访问JSP、Servlet时，Servlet容器会自动往响应头中添加一个Cookie(Tomcat中是JSESSIONID)</li>
+<li>显式使用： 当我们有一些安全性要求不高，数据量不大的用户数据需要存储时，可以考虑使用Cookie</li>
+</ul>
+<h3 id="怎么使用cookie">怎么使用Cookie?</h3>
+<h4 id="cookie的属性">Cookie的属性</h4>
+<p><img src="https://i.loli.net/2019/09/22/2dnR9TPJtLV3Sec.png" alt="cookie.png"></p>
+<p>在Chrome浏览器开发者模式中，我们可以看到网站的cookie；
+图中可以看到Cookie具有的属性有 Name、value、Domain、path、Expires/Max-Age、Size、HTTP、Secure等。</p>
+<ul>
+<li>
+<p><strong>Name</strong>：该Cookie的名称，一旦创建，名称便不可更改</p>
+</li>
+<li>
+<p><strong>Value</strong>：该Cookie的值，如果值为Unicode字符，需要为字符编码</p>
+</li>
+<li>
+<p><strong>Domain</strong>：可以访问到这个Cookie的域名。如果设置为<code>.google.com</code>,则所有以<code>google.com</code>结尾的域名都可以访问该      Cookie。注意第一个字符必须为<strong><code>.</code></strong></p>
+<blockquote>
+<p>注：</p>
+<p>非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不能设置其他二级域名的cookie，否则cookie无法生成。</p>
+<p>顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。</p>
+<p>二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，这样就可以在所有二级域名里面或者到这个cookie的值了。</p>
+<p>顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Path</strong>：可以访问到这个Cookie的页面路径。 比如domain是<code>.goole.com</code>,  path是<code>/TestServlet</code>，那么只有<code>/TestServlet</code> 路径下的页面可以读取此Cookie。</p>
+</li>
+<li>
+<p><strong>Expires/Max-Age:</strong> 该Cookie失效时间，单位秒。Cookie在maxAge秒之后失效。</p>
+</li>
+<li>
+<p><strong>Size</strong>：此Cookie的大小。</p>
+</li>
+<li>
+<p><strong>HTTP</strong>：此cookie的<code>httponly</code>属性。若此属性为<code>true</code>，则只有在http请求头中会带有此cookie的信息，而不能通过document.cookie来访问此cookie。</p>
+</li>
+<li>
+<p><strong>Secure</strong>：设置是否只能通过https来传递此条cookie。</p>
+</li>
+</ul>
+<h4 id="cookie的创建">Cookie的创建</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 两种方法
+</span><span style="color:#75715e">// 1. 构造时将数据传入
+</span><span style="color:#75715e"></span>Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">);</span>
+
+<span style="color:#75715e">// 2. 构造时无参，然后通过set方法设置数据
+</span><span style="color:#75715e"></span>Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">();</span>
+cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">);</span>
+
+<span style="color:#75715e">// 除了核心的数据之外，我们还可以设置一些其他属性
+</span><span style="color:#75715e">// 1. 设置过期时间
+</span><span style="color:#75715e"></span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(</span>60<span style="color:#f92672">);</span>	<span style="color:#75715e">//单位：秒(60秒后,Cookie会自动删除)
+</span><span style="color:#75715e">// 2. 设置Domain
+</span><span style="color:#75715e"></span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setDomain</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;www.baidu.com&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 代表只有访问www.baidu.com这个域名下的请求，才能获取到此Cookie
+</span><span style="color:#75715e"></span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setDomain</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.baidu.com&#34;</span><span style="color:#f92672">);</span>	<span style="color:#75715e">// 代表所有www.baidu.com下的二级域名包括www.baidu.com这个一级域名都可以共享此Cookie（注意这种情况下domain必须以&#34;.&#34;开头）
+</span><span style="color:#75715e">// 3. 设置Path 
+</span><span style="color:#75715e"></span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/StudentServlet&#34;</span><span style="color:#f92672">);</span>	<span style="color:#75715e">// 一旦设置了Path，那么要获取Cookie，当前的请求地址必须满足Path的规则，否则获取不到此Cookie     http://xxx:port/student/StudentServlet/getstu/3
+</span></code></pre></div><h4 id="cookie的添加">Cookie的添加</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 使用响应对象写入浏览器
+</span><span style="color:#75715e"></span>reponse<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span> <span style="color:#75715e">//本质上会在响应中添加一个Set-Cookie响应头。
+</span></code></pre></div><h4 id="cookie删除">Cookie删除</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Cookie没有delete方法
+</span><span style="color:#75715e">// 我们可以通过设置过期时间为0实现删除
+</span><span style="color:#75715e"></span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+response<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+</code></pre></div><h4 id="cookie的修改">Cookie的修改</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Cookie的修改其实就是覆盖添加
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 具体来说分三步
+</span><span style="color:#75715e">// 1. 先获取已有Cookie，
+</span><span style="color:#75715e">// 2. 然后修改其中的数据，
+</span><span style="color:#75715e">// 3. 最后调用response.addCookie()重新添加到浏览器，浏览器看到Key相同的Cookie会自动更新
+</span><span style="color:#75715e"></span>
+</code></pre></div><h4 id="获取cookie中的数据">获取Cookie中的数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 1. 先通过请求对象获取请求中携带的所有Cookie数组
+</span><span style="color:#75715e"></span>Cookie<span style="color:#f92672">[]</span> cookies <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getCookies</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">// 2. 迭代Cookie数组，寻找要操作的Cookie
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Cookie cookie <span style="color:#f92672">:</span> cookies<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 根据cookie.getName()判断是否是自己要获取数据的cookie
+</span><span style="color:#75715e"></span>	
+    <span style="color:#75715e">// 3. 找到后，调用cookie.getValue()获取数据
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h2 id="session">Session</h2>
+<h3 id="session是什么">Session是什么？</h3>
+<p>Session和Cookie类似，都是用来存储用户信息的。不同于Cookie的是Session是存储在服务器端。他们两者通过JSESSIONID关联起来。</p>
+<h3 id="为什么要用session">为什么要用Session？</h3>
+<p>虽然Cookie已经可以标识出哪个请求是属于哪个用户的。但是不足的是Cookie本身是存储于客户端硬盘上，安全性不高，不适合存储敏感数据，还有Cookie本身能存储的数据很有限（数据大小本身限制、数据类型限制、字符集限制）。而存储在服务端的Session完全没有这些问题。</p>
+<h3 id="什么情况下要使用session">什么情况下要使用Session?</h3>
+<p>Session可以用来存储用户的所有信息，理论上所有能在Cookie中存储的数据都可以放到Session中。考虑到Session是基于内存的，如果存储太多不太重要的数据会大大增加服务器端内存压力，一般Session会配合Cookie一起使用。</p>
+<h3 id="怎么使用session">怎么使用Session?</h3>
+<h4 id="创建session">创建Session</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Session是由容器自动创建的，我们可以在代码中直接获取Sesssion
+</span><span style="color:#75715e"></span>HttpSession session <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="往session中存储数据">往Session中存储数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">session<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="获取session中的数据">获取Session中的数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">session<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="删除session中的数据">删除Session中的数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">session<span style="color:#f92672">.</span><span style="color:#a6e22e">removeAttribute</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="修改session中的数据">修改Session中的数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 修改Session中的数据和修改Cookie中的数据类似，都是覆盖添加
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 1. 获取要修改的数据
+</span><span style="color:#75715e"></span>Object data <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+
+<span style="color:#75715e">// 2. 修改数据对应的属性
+</span><span style="color:#75715e"></span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">setXXX</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">// 3. 将修改后的数据重新存入Session
+</span><span style="color:#75715e"></span>session<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+
+</code></pre></div><h4 id="强制让session失效">强制让Session失效</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidate</span><span style="color:#f92672">();</span>	<span style="color:#75715e">//调用后session对象会失效，同时客户端Cookie中的JSESSIONID也会发生变化
+</span></code></pre></div></div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://niconya.github.io/tags/cookie/">Cookie</a>
+                
+                <a href="https://niconya.github.io/tags/session/">Session</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span>结尾Slogan</span>
+  </div>
+</footer>
+
+
+
+<script src="https://niconya.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://niconya.github.io/js/zozo.js"></script>
+<script src="https://niconya.github.io/js/highlight.pack.js"></script>
+<link  href="https://niconya.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://niconya.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>
